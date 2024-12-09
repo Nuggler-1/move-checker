@@ -53,7 +53,7 @@ class Checker():
         if response.status_code != 200:
             raise Exception(f'Error getting amount: {response.status_code}')
         
-        if response.json()['eligibility_status'] != 'eligible': 
+        if not response.json()['isEligible'] : 
             logger.warning(f'{self.account.address} is not eligible for claim')
             return 0
         
