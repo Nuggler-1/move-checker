@@ -59,7 +59,7 @@ class Checker():
         
         if response.json()['isEligible']: 
             logger.success(f'{self.account.address} is eligible for claim with amount: {response.json()["amount"]}')
-            return response.json()['amount']
+            return int(response.json()['amount'])
         
 
 def main(): 
