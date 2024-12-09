@@ -35,6 +35,8 @@ class Checker():
     def get_amount(self): 
 
         nonce = self._get_nonce()
+        if nonce == 0:
+            return 0
         message = f'Please sign this message to confirm ownership. nonce: {nonce}'
 
         encoded_msg = encode_defunct(text=message)
