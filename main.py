@@ -67,18 +67,19 @@ class Checker():
         if response.status_code != 200:
             raise Exception(f'Error getting amount: {response.status_code}')
         
-        if response.json()['claimedOnL1']:
-            logger.warning(f'{self.account.address}: already claimed {response.json()['amount']} on L1')
-            return 0
-        
-        if response.json()['claimedOnL2']:
-            logger.warning(f'{self.account.address}: already claimed {response.json()['amountL2']} on L2')
-            return 0
-        
         if response.json()['eligibility_status'] != "eligible": 
             logger.warning(f'{self.account.address}: is not eligible for claim')
             logger.warning(f'{self.account.address}: eligibility status from api: {response.json()["eligibility_status"]}')
             return 0
+
+        if response.json()['claimedOnL1']:
+            logger.warning(f'{self.account.address}: already claimed {response.json()["amount"]} on L1')
+            return 0
+        
+        if response.json()['claimedOnL2']:
+            logger.warning(f'{self.account.address}: already claimed {response.json()["amountL2"]} on L2')
+            return 0
+        
         
         if response.json()['isEligible']: 
             logger.success(f'{self.account.address}: is eligible for claim with amount: {response.json()["amountL2"]}')
