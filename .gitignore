@@ -163,6 +163,7 @@ cython_debug/
 
 # Ignore files with exceptions
 *.txt
+user_data/
 !requirements.txt
 
 # Ignore specific file
