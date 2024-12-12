@@ -16,3 +16,9 @@
 ### Запуск 
 
 `python main.py`
+
+### Контакты 
+
+Связь со мной: https://t.me/fttavk
+
+Telegram канал: https://t.me/fttavksoft
