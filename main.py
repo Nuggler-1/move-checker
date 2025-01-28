@@ -78,7 +78,7 @@ class Checker():
         
         if response.json()['claimedOnL2']:
             logger.warning(f'{self.account.address}: already claimed {response.json()["amountL2"]} on L2')
-            return 0
+            return int(response.json()["amountL2"])
         
         
         if response.json()['isEligible']: 
